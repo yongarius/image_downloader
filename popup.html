@@ -1,0 +1,50 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- Dependencies! -->
+    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/underscore.js"></script>
+    <script type="text/javascript" src="js/ng-range-slider.js"></script>
+
+    <!-- Application! -->
+    <script type="text/javascript" src="js/Default.js"></script>
+
+    <!-- Stylesheets! -->
+    <link rel="stylesheet" type="text/css" href="css/Default.css" />
+
+    <script type="text/javascript" src="js/require.js"></script>
+
+    <title>NASA Picture of the Day</title>
+  </head>
+
+  <body ng-app="rangeApp">
+    <div class="header" style="width: 400px">
+      <div class="size-filter" ng-controller="size-controller">
+        <span class="size-filter-label">Width: </span>
+        <div class="size-filter-controller">
+          <input type="number" class="size" id="width-min" value="{{range.from}}"></input>
+          <section data-ticks="true" data-range-slider class="range-slider" step="1" ng-model="range" min="0" max="max" model-min="userMinWidth" model-max="userMaxWidth"></section>
+          <input type="number" class="size" id="width-max" value="{{range.to}}"></input>
+        </div>
+        <!-- <code>Current model: {{range}}</code> -->
+      </div> 
+      <div class="size-filter" ng-controller="size-controller">
+        <span class="size-filter-label">Height: </span>
+        <div class="size-filter-controller">
+          <input type="number" class="size" id="height-min" value="{{range.from}}"></input>
+          <section data-ticks="true" data-range-slider class="range-slider" step="1" ng-model="range" min="0" max="max"></section>
+          <input type="number" class="size" id="height-max" value="{{range.to}}"></input>
+        </div>
+      </div>
+      <button id="load-image">Load Image</button>
+      <button id="download">Download</button>
+      <input type="checkbox" id="one-file">One File</input>
+      <script src="js/popup.js"></script>
+    </div>
+    <div id="image-container">
+
+    </div>
+    <a id="for-download" style="display:none;"></a>
+  </body>
+</html>
